@@ -16,22 +16,25 @@ import { HttpClientModule } from '@angular/common/http';
   ], 
   template: `
     <section>
-      <form>
-        <label for="teacherID">Teacher ID</label>
-        <input
-          type="text"
-          placeholder="Filter by teacher"
-          [(ngModel)]="teacherID"
-          [ngModelOptions]="{ standalone: true }"
-        />
-        <button class="primary" type="button" (click)="getTeacherService()">
-          Search
-        </button>
-      </form>
-      <div class="results">
-        <app-student-list [data]="data"></app-student-list>
-      </div>
-    </section>
+  <form>
+    <label for="teacherID">Teacher ID</label>
+    <input
+      type="text"
+      placeholder="Filter by teacher"
+      [(ngModel)]="teacherID"
+      [ngModelOptions]="{ standalone: true }"
+    />
+    <button class="primary" type="button" (click)="getTeacherService()">
+      Search
+    </button>
+  </form>
+  <div class="results" *ngIf="data && data.length > 0">
+    <p>These are the teacher's students:</p>
+    <app-student-list [data]="data"></app-student-list>
+  </div>
+</section>
+
+    
   `,
   styleUrls: ['./home.component.scss'],
   providers: [TeacherService], 

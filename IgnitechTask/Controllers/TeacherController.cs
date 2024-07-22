@@ -30,7 +30,7 @@ public class TeacherController : ControllerBase
     {
         try
         {
-            var subjects = await _teacherService.GetSubjectsByTeacherGuidAsync(teacherGuid);
+            var subjects = await _teacherService.GetSubjectsByTeacherGuid(teacherGuid);
             return Ok(subjects);
         }
         catch (Exception ex)
@@ -38,4 +38,20 @@ public class TeacherController : ControllerBase
             return NotFound(ex.Message);
         }
     }
+
+    [HttpGet("GetTeacherByStudentGuidAndSubjectId")]
+    public async Task<IActionResult> GetTeacherByStudentGuidAndSubjectId(Guid studentGuid, int subjectId)
+    {
+        try
+        {
+            var teacher = await _teacherService.GetTeacherByStudentGuidAndSubjectId(studentGuid, subjectId);
+            return Ok(teacher);
+        }
+        catch (Exception ex)
+        {
+            return NotFound(ex.Message);
+        }
+    }
+
+    
 }

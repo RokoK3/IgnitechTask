@@ -24,4 +24,32 @@ public class StudentController : ControllerBase
             return NotFound(ex.Message);
         }
     }
+
+    [HttpGet("GetGradesByStudentGuidAndSubjectId")]
+    public async Task<IActionResult> GetGradesByStudentGuidAndSubjectId(Guid studentGuid, int subjectId)
+    {
+        try
+        {
+            var grades = await _studentService.GetGradesByStudentGuidAndSubjectId(studentGuid, subjectId);
+            return Ok(grades);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
+    }
+
+    [HttpGet("GetAverageGradeByStudentGuidAndSubjectId")]
+    public async Task<IActionResult> GetAverageGradeByStudentGuidAndSubjectId(Guid studentGuid, int subjectId)
+    {
+        try
+        {
+            var averageGrade = await _studentService.CalculateAverageGradeByStudentGuidAndSubjectId(studentGuid, subjectId);
+            return Ok(averageGrade);
+        }
+        catch (Exception ex)
+        {
+            return NotFound(ex.Message);
+        }
+    }
 }

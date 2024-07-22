@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IgnitechTask", "IgnitechTask\IgnitechTask.csproj", "{1C705D0B-3B38-453D-979A-F62ADFC123A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C705D0B-3B38-453D-979A-F62ADFC123A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C705D0B-3B38-453D-979A-F62ADFC123A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C705D0B-3B38-453D-979A-F62ADFC123A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C705D0B-3B38-453D-979A-F62ADFC123A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77B9DD2B-94E8-4844-B880-F90B7CE54E5F}
+	EndGlobalSection
+EndGlobal

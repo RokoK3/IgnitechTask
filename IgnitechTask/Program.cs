@@ -1,6 +1,10 @@
+using IgnitechTask;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Services.AddDbContext<MyDBContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
 
@@ -21,5 +25,11 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<MyDBContext>();
+    DataSeeder.SeedData(context);
+}
 
 app.Run();
